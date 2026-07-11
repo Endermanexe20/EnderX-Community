@@ -169,55 +169,42 @@
                 </button>
             </div>
 
-            <form id="contactForm" action="https://formsubmit.co/alkbm4278@gmail.com" method="POST">
-                <input type="hidden" name="_subject" value="New message from EnderX Community Website">
-                <input type="hidden" name="_captcha" value="false">
-                <input type="hidden" name="_template" value="table">
+      <div class="reveal contact-form-card">
+        <form id="contact-form" action="https://formsubmit.co/exstudios.official@gmail.com" method="POST" class="space-y-4">
+          <input type="hidden" name="_subject" value="New message from EX Studios Website">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
-                    <div class="flex flex-col gap-2">
-                        <label for="firstName" class="text-xs font-semibold text-slate-500 dark:text-white/60 uppercase tracking-wider">First Name</label>
-                        <input type="text" id="firstName" name="First Name" placeholder="e.g. Ender" required
-                               class="w-full bg-white/80 dark:bg-white/[0.06] border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white text-sm outline-none focus:border-violet-500 dark:focus:border-violet-500 focus:bg-violet-50 dark:focus:bg-violet-500/8 transition-all placeholder:text-slate-400 dark:placeholder:text-white/25">
-                    </div>
-                    <div class="flex flex-col gap-2">
-                        <label for="lastName" class="text-xs font-semibold text-slate-500 dark:text-white/60 uppercase tracking-wider">Last Name</label>
-                        <input type="text" id="lastName" name="Last Name" placeholder="e.g. Smith" required
-                               class="w-full bg-white/80 dark:bg-white/[0.06] border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white text-sm outline-none focus:border-violet-500 dark:focus:border-violet-500 focus:bg-violet-50 dark:focus:bg-violet-500/8 transition-all placeholder:text-slate-400 dark:placeholder:text-white/25">
-                    </div>
-                </div>
-
-                <div class="flex flex-col gap-2 mb-5">
-                    <label for="email" class="text-xs font-semibold text-slate-500 dark:text-white/60 uppercase tracking-wider">Your Email</label>
-                    <input type="email" id="email" name="Email" placeholder="yourname@example.com" required
-                           class="w-full bg-white/80 dark:bg-white/[0.06] border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white text-sm outline-none focus:border-violet-500 dark:focus:border-violet-500 focus:bg-violet-50 dark:focus:bg-violet-500/8 transition-all placeholder:text-slate-400 dark:placeholder:text-white/25">
-                </div>
-
-                <div class="flex flex-col gap-2 mb-5">
-                    <label for="topic" class="text-xs font-semibold text-slate-500 dark:text-white/60 uppercase tracking-wider">Topic</label>
-                    <select id="topic" name="Topic" required
-                            class="w-full bg-white/80 dark:bg-white/[0.06] border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white text-sm outline-none focus:border-violet-500 transition-all appearance-none">
-                        <option value="" disabled selected>Select a topic...</option>
-                        <option value="Joining a Community">Joining a Community</option>
-                        <option value="Partnership">Partnership</option>
-                        <option value="Report an Issue">Report an Issue</option>
-                        <option value="General Question">General Question</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-
-                <div class="flex flex-col gap-2 mb-7">
-                    <label for="message" class="text-xs font-semibold text-slate-500 dark:text-white/60 uppercase tracking-wider">Message</label>
-                    <textarea id="message" name="Message" rows="6" placeholder="Write your message here..." required
-                               class="w-full bg-white/80 dark:bg-white/[0.06] border border-gray-200 dark:border-white/10 rounded-xl px-4 py-3 text-slate-900 dark:text-white text-sm outline-none focus:border-violet-500 dark:focus:border-violet-500 focus:bg-violet-50 dark:focus:bg-violet-500/8 transition-all placeholder:text-slate-400 dark:placeholder:text-white/25 resize-y"></textarea>
-                </div>
-
-                <button type="submit" id="submitBtn"
-                        class="btn-shine w-full flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-bold px-6 py-4 rounded-xl text-base transition-colors shadow-[0_4px_20px_rgba(124,58,237,0.4)]">
-                    <i data-lucide="send" class="w-5 h-5"></i>
-                    <span id="submitText">Send Message</span>
-                </button>
-            </form>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label
+                class="block text-sm font-semibold text-gray-400 mb-2 font-rajdhani tracking-wider uppercase">Name</label>
+              <input id="contact-name" name="Name" type="text" placeholder="Your name" class="contact-input" required />
+            </div>
+            <div>
+              <label
+                class="block text-sm font-semibold text-gray-400 mb-2 font-rajdhani tracking-wider uppercase">Email</label>
+              <input id="contact-email" name="Email" type="email" placeholder="your@email.com" class="contact-input"
+                required />
+            </div>
+          </div>
+          <div>
+            <label
+              class="block text-sm font-semibold text-gray-400 mb-2 font-rajdhani tracking-wider uppercase">Subject</label>
+            <input id="contact-subject" name="Subject" type="text" placeholder="What's this about?"
+              class="contact-input" />
+          </div>
+          <div>
+            <label
+              class="block text-sm font-semibold text-gray-400 mb-2 font-rajdhani tracking-wider uppercase">Message</label>
+            <textarea id="contact-message" name="Message" rows="5" placeholder="Tell us about your project or idea..."
+              class="contact-input resize-none" required></textarea>
+          </div>
+          <button type="submit" class="btn-solid w-full justify-center gap-2.5 text-sm py-4">
+            <i data-lucide="send" class="w-5 h-5"></i> Send Message
+          </button>
+        </form>
+          </div>
         </div>
     </div>
 </main>
