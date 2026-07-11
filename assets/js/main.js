@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
         overlay:   document.getElementById('drawerOverlay'),
         themeBtns: document.querySelectorAll('.theme-toggle'),
         reloadBtn: document.getElementById('reloadBtn'),
+        menuIcon:  document.getElementById('hamburgerMenuIcon'),
+        closeIcon: document.getElementById('hamburgerCloseIcon'),
         html:      document.documentElement
     };
 
@@ -16,6 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const method = isOpen ? 'add' : 'remove';
             elements.drawer.classList[method]('open');
             elements.overlay.classList[method]('open');
+            elements.menuIcon?.classList.toggle('hidden', isOpen);
+            elements.closeIcon?.classList.toggle('hidden', !isOpen);
+            elements.hamburger.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
             document.body.style.overflow = isOpen ? 'hidden' : '';
         };
 
