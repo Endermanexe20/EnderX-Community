@@ -1,0 +1,53 @@
+document.addEventListener('DOMContentLoaded', () => {
+    if (typeof lucide !== 'undefined') lucide.createIcons();
+
+    const elements = {
+        hamburger: document.getElementById('hamburger'),
+        closeBtn:  document.getElementById('closeDrawer'),
+        drawer:    document.getElementById('mobileDrawer'),
+        overlay:   document.getElementById('drawerOverlay'),
+        themeBtns: document.querySelectorAll('.theme-toggle'),
+        reloadBtn: document.getElementById('reloadBtn'),
+        html:      document.documentElement
+    };
+
+    if (elements.hamburger && elements.drawer) {
+        const toggleDrawer = (isOpen) => {
+            const method = isOpen ? 'add' : 'remove';
+            elements.drawer.classList[method]('open');
+            elements.overlay.classList[method]('open');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        };
+
+        elements.hamburger.addEventListener('click', () => {
+            const isOpen = elements.drawer.classList.contains('open');
+            toggleDrawer(!isOpen);
+        });
+        [elements.closeBtn, elements.overlay].forEach(el => el?.addEventListener('click', () => toggleDrawer(false)));
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 1024 && elements.drawer.classList.contains('open')) {
+                toggleDrawer(false);
+            }
+        });
+    }
+
+    const setTheme = (theme) => {
+        elements.html.classList.toggle('dark', theme === 'dark');
+        localStorage.theme = theme;
+    };
+
+    elements.themeBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const isDark = elements.html.classList.contains('dark');
+            setTheme(isDark ? 'light' : 'dark');
+        });
+    });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        if (!localStorage.theme) setTheme(e.matches ? 'dark' : 'light');
+    });
+
+    elements.reloadBtn?.addEventListener('click', () => window.location.reload());
+});
